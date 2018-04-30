@@ -21,15 +21,16 @@ backup=()
 options=(!strip !upx)
 install=
 changelog=
-source=(http://www.edrawsoft.cn/2download/$pkgname-$pkgmaver-64-cn.run.tgz)
-md5sums=('bba2467bde6c8a7339454460f7c18d23')
+source=(http://download.edrawsoft.com/archives/$pkgname-$pkgmaver-64.run.gz)
+sha256sums=('2fd51abc48c453bd550d87305fbcad7032e277506389b97c7cb4b4f74907b074')
 noextract=()
 
 prepare() {
   line=37  # head -n 3 file.run to get the line
   echo "Unpack bash binary..."
-  tail -n +$line $pkgmaname-$pkgmaver-64-cn.run > $pkgname-$pkgver.tar.gz
-  rm -f $pkgmaname-$pkgmaver-64-cn.run
+  ls -al
+  tail -n +$line $pkgname-$pkgmaver-64.run > $pkgname-$pkgver.tar.gz
+  rm -f $pkgname-$pkgmaver-64.run
 }
 
 build() {
